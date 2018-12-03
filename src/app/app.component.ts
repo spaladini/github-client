@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'github-client';
+
+  public title = 'github-client';
+
+  public name = 'samuele';
+
+  public showMyName() {
+    alert(this.name);
+  }
+
 }

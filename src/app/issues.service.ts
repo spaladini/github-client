@@ -49,7 +49,7 @@ export class IssuesService {
 
   constructor() { }
 
-  public retrieveIssues() {
-    return issues;
+  public retrieveIssues(): Array<any> {
+    return issues as Array<any>;
   }
 }
