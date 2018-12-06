@@ -58,6 +58,11 @@ export class IssuesService {
     return issues as Array<any>;
   }
 
+  public retrieveSingleIssue(issueNumber: number): any {
+    const found = issues.find(issue => issue.number === issueNumber);
+    return found;
+  }
+
   public retrieveIssuesFromWeb(): Observable<Array<Issue>> {
     return this.httpClient.get<Array<Issue>>(service_url);
   }

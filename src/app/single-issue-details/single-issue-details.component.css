@@ -1,0 +1,7 @@
+:host > div {
+    background-color: lightslategray;
+    padding: 5px;
+    border-style: solid;
+    border-color: black;
+    border-width: 2px;
+}
