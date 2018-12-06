@@ -1,7 +1,7 @@
 <div>
   <div>Number: {{issue.number}}</div>
   <div>Title: {{issue.title}}</div>
-
+  <div><a routerLink="/issue/{{issue.number}}">Go to details</a></div>
+  <br>
   <button (click)="remove()">REMOVE</button>
-  <a routerLink="/issue/{{issue.number}}">Go to details</a>
 </div>
