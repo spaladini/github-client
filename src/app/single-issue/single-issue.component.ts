@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Issue } from '../model/github.model';
 
 @Component({
@@ -11,9 +11,16 @@ export class SingleIssueComponent implements OnInit {
   @Input()
   issue: Issue;
 
+  @Output()
+  removed: EventEmitter<Issue> = new EventEmitter<Issue>();
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  remove() {
+    this.removed.emit(this.issue);
   }
 
 }

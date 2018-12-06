@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IssuesService } from '../issues.service';
+import { Issue } from '../model/github.model';
 
 @Component({
   selector: 'app-issue-list',
@@ -32,5 +33,9 @@ export class IssueListComponent implements OnInit {
 
   }
 
-
+  removeIssue(issue: Issue) {
+    console.log(issue);
+    const index = this.issues.findIndex(iss => iss.id === issue.id);
+    this.issues.splice(index, 1);
+  }
 }

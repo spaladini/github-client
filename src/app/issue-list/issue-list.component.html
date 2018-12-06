@@ -1,5 +1,5 @@
 <ul *ngFor="let issue of issues">
   <li>
-    <app-single-issue [issue]="issue"></app-single-issue>
+    <app-single-issue [issue]="issue" (removed)="removeIssue($event)"></app-single-issue>
   </li>
 </ul>
