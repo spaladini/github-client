@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Issue } from './model/github.model';
 
 const issues = [
   {
@@ -42,14 +45,25 @@ const issues = [
   }
 ];
 
+const service_url = 'https://api.github.com/repos/spaladini/github-client/issues';
+
 @Injectable({
   providedIn: 'root'
 })
 export class IssuesService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   public retrieveIssues(): Array<any> {
     return issues as Array<any>;
   }
+
+  public retrieveIssuesFromWeb(): Observable<Array<Issue>> {
+    return this.httpClient.get<Array<Issue>>(service_url);
+  }
+
+  public retrieveSingleIssueFromWeb(issueNumber: number): Observable<Issue> {
+    return this.httpClient.get<Issue>(`${service_url}/${issueNumber}`);
+  }
+
 }

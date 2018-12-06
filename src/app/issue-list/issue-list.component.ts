@@ -29,6 +29,7 @@ export class IssueListComponent implements OnInit {
 
     this.issues = this.issuesService.retrieveIssues();
     console.log(this.issues);
+
   }
 
 
