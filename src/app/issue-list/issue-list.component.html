@@ -1,5 +1,5 @@
 <ul *ngFor="let issue of issues">
-  <li *ngIf="issue.id==issueToRead">
-    <span>{{issue.id}} {{issue.title}} {{issue.created_at | date : 'dd/MM/yyyy'}}</span>
+  <li>
+    <app-single-issue [issue]="issue" title="{{issue.title}}" (removed)="removeIssue($event)"></app-single-issue>
   </li>
 </ul>

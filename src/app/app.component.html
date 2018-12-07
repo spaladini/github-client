@@ -5,14 +5,8 @@
   </h1>
 </div>
 
-<input type="text" name="test" [(ngModel)]="name">
-Nome: {{name}}
-<br>
-<button (click)="showMyName()">clickme</button>
-
-<app-issue-list></app-issue-list>
-
-
-
+<ul>
+  <li><a routerLink="issue-list">Go to issue-list</a></li>
+</ul>
 
 <router-outlet></router-outlet>
