@@ -1,4 +1,6 @@
 ul {
+    background-color: lightgray;
+    padding: 3em;
     border-color: black;
     border-style: solid;
     border-width: 2px;
