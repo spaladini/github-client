@@ -1,0 +1,34 @@
+<div>
+  <form #issueForm="ngForm">
+    <div class="form-group">
+      <label>Title: </label>
+      <input type="text" name="title" [(ngModel)]="issue.title" required #title="ngModel">
+      <ul>
+        <li>pristine:{{title.pristine}}</li>
+        <li>valid:{{title.valid}}</li>
+      </ul>
+      {{title.className}}
+      <div class="alert" *ngIf="title.touched && !title.valid">Field is not valid!</div>
+    </div>
+    <div class="form-group">
+      <label>Assignee: </label>
+      <select name="assignee" [(ngModel)]="issue.assignee" #assignee>
+        <option></option>
+        <option *ngFor="let user of users" [ngValue]="user">{{user.login}}</option>
+      </select>
+      {{assignee.className}}
+      required:{{assignee.required}}
+    </div>
+    <div class="form-group">
+      <label>Level: </label>
+      <input type="text" pattern="[0-9]+" name="level" [(ngModel)]="issue.level" #level="ngModel">
+      <ul>
+        <li>pristine:{{level.pristine}}</li>
+        <li>valid:{{level.valid}}</li>
+      </ul>
+      <div class="alert" *ngIf="level.touched && !level.valid">Field is not valid!</div>
+    </div>
+  </form>
+</div>
+<button (click)="printInConsole(issueForm)">Print in console!</button>
+<button (click)="submitNewIssue()" [disabled]="!issueForm.form.valid">Save</button>

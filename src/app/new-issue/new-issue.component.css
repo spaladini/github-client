@@ -1,0 +1,17 @@
+:host > div {
+    border-color: lightgray;
+    border-style: solid;
+    border-width: 2px;
+    margin: 3em;
+    padding: 3em;
+}
+
+.form-group {
+    margin: 1em;
+}
+
+.alert {
+    padding: 1em;
+    background-color: rgb(238, 201, 207);
+    color:red;
+}

@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { SingleIssueDetailsComponent } from './single-issue-details/single-issue-details.component';
 import { SingleIssueComponent } from './single-issue/single-issue.component';
+import { NewIssueComponent } from './new-issue/new-issue.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     IssueListComponent,
     SingleIssueComponent,
-    SingleIssueDetailsComponent
+    SingleIssueDetailsComponent,
+    NewIssueComponent
   ],
   imports: [
     BrowserModule,
