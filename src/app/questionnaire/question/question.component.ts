@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-question',
@@ -11,15 +11,20 @@ export class QuestionComponent implements OnInit {
   @Input()
   label: string;
 
+  @Input()
+  questionsFormArray: FormArray;
+
+  questionForm: FormGroup;
+
   constructor() { }
 
-  questionForm = new FormGroup({
-    label: new FormControl(),
-    answer: new FormControl(),
-    notes: new FormControl()
-  });
-
   ngOnInit() {
+    this.questionForm = new FormGroup({
+      label: new FormControl(),
+      answer: new FormControl(),
+      notes: new FormControl()
+    });
+
     this.questionForm.get('label').setValue(this.label);
     this.questionForm.get('answer').setValidators(Validators.required);
     this.questionForm.get('answer').valueChanges.subscribe(v => {
@@ -27,6 +32,8 @@ export class QuestionComponent implements OnInit {
       if (v === 'KO' || v === 'ND') {
       }
     });
+
+    this.questionsFormArray.push(this.questionForm);
   }
 
   onSubmit() {
@@ -43,5 +50,7 @@ export class QuestionComponent implements OnInit {
   print(p: any) {
     console.log(p);
   }
+
+
 
 }

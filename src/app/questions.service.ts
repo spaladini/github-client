@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 const topics = [
-  'Orario del corso', 'Argomenti trattati', 'Comprensibilità', 'Preparazione docenti'
+  'Orario del corso', 'Argomenti trattati', 'Preparazione docenti'
 ];
 
 

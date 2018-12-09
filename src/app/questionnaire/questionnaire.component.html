@@ -1,6 +1,12 @@
 <div>
-  <h2>Questionario!</h2>
+  <form [formGroup]="questionnaireForm" (ngSubmit)="onSubmit()">
+    <h2>Questionario!</h2>
+    <div *ngFor="let topic of topics; index as i">{{i}} {{topic}}
+      <app-question label="{{topic}}" [questionsFormArray]="questionnaireForm.get('questions')"></app-question>
+    </div>
 
-
-  <app-question label="{{subjects[0]}}"></app-question>
+    <hr>
+    <button type="submit" [disabled]="!questionnaireForm.valid">Invia</button>
+  </form>
+  <button type="button" (click)="print(questionnaireForm)"> print</button>
 </div>
