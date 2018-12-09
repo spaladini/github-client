@@ -38,7 +38,7 @@ export class IssueListComponent implements OnInit {
   }
 
   removeIssue(issue: Issue): void {
-    console.log('Event catched!', issue);
+    console.log('Event caught!', issue);
     const index = this.issues.findIndex((iss: Issue) => {
       return iss.id === issue.id;
     });

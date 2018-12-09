@@ -1,0 +1,23 @@
+<h3>{{label}}</h3>
+<form [formGroup]="questionForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label>Esito: </label>
+    <input type="radio" value="OK" formControlName="answer"> OK
+    <input type="radio" value="KO" formControlName="answer"> KO
+    <input type="radio" value="ND" formControlName="answer"> ND
+  </div>
+
+  <div>
+    <label>Note: </label>
+    <input type="text" formControlName="notes" [required]="questionForm.value.answer == 'KO'">
+  </div>
+  <button type="button" (click)="updateNotes()">Aggiorna note</button>
+  <button type="submit" [disabled]="!questionForm.valid">Invia</button>
+</form>
+<button (click)="print(questionForm)">Print on console</button>
+{{questionForm.value | json}}
+
+<ul>
+  <li>Form status {{questionForm.status}}</li>
+  <li>Answer status {{questionForm.controls.answer.status}}</li>
+</ul>
