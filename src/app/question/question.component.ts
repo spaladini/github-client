@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-question',
@@ -10,6 +10,9 @@ export class QuestionComponent implements OnInit {
 
   @Input()
   topic: string;
+
+  @Input()
+  questionsArray: FormArray;
 
   questionForm: FormGroup;
 
@@ -24,6 +27,8 @@ export class QuestionComponent implements OnInit {
 
     this.questionForm.get('topic').setValue(this.topic);
     this.questionForm.get('answer').setValidators(Validators.required);
+
+    this.questionsArray.push(this.questionForm);
   }
 
   submit() {

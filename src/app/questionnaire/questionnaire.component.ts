@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 import { QuestionsService } from '../questions.service';
 
 @Component({
@@ -10,11 +11,22 @@ export class QuestionnaireComponent implements OnInit {
 
   public topics: Array<string>;
 
-  constructor(private questionsService: QuestionsService) { }
+  public questionnaireForm: FormGroup = new FormGroup({
+    questions: this.fb.array([])
+  });
+
+  constructor(
+    private questionsService: QuestionsService,
+    private fb: FormBuilder
+  ) { }
 
   ngOnInit() {
     this.topics = this.questionsService.getTopics();
     console.log(this.topics);
+  }
+
+  submit() {
+    console.log('Questionario completo:', this.questionnaireForm.value);
   }
 
 }

@@ -1,6 +1,6 @@
 <div>
   <h3>{{topic}}</h3>
-  <form [formGroup]="questionForm" (ngSubmit)="submit()">
+  <div [formGroup]="questionForm">
     <div>
       <label>Esito: </label>
       <input type="radio" value="OK" formControlName="answer">OK
@@ -11,6 +11,5 @@
       <label>Note: </label>
       <input type="text" formControlName="notes" [required]="questionForm.value.answer == 'KO'">
     </div>
-    <button type="submit" [disabled]="!questionForm.valid">Invia</button>
-  </form>
+  </div>
 </div>

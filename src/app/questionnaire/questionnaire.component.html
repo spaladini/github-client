@@ -1,4 +1,10 @@
 <div>
   <h2>QUESTIONARIO</h2>
-  <app-question topic={{topics[0]}}></app-question>
+  <form [formGroup]="questionnaireForm" (ngSubmit)="submit()">
+    <div *ngFor="let topic of topics">
+      <app-question [questionsArray]="questionnaireForm.controls.questions" topic={{topic}}></app-question>
+    </div>
+    <hr>
+    <button type="submit" [disabled]="!questionnaireForm.valid">Invia Questionario</button>
+  </form>
 </div>
