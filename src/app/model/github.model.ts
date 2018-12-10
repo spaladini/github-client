@@ -4,4 +4,11 @@ export class Issue {
     status: string;
     title: string;
     body: string;
+    assignee: User;
+    createdBy: User;
+}
+
+export class User {
+    login: string;
+    id: number;
 }

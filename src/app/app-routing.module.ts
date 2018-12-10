@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { IssueListComponent } from './issue-list/issue-list.component';
 import { IssuesResolverService } from './issues-resolver.service';
+import { NewIssueComponent } from './new-issue/new-issue.component';
+import { QuestionnaireComponent } from './questionnaire/questionnaire.component';
 import { SingleIssueDetailsComponent } from './single-issue-details/single-issue-details.component';
 
 const routes: Routes = [
@@ -15,6 +17,14 @@ const routes: Routes = [
   {
     path: 'issue-details/:number',
     component: SingleIssueDetailsComponent
+  },
+  {
+    path: 'new-issue',
+    component: NewIssueComponent
+  },
+  {
+    path: 'questionnaire',
+    component: QuestionnaireComponent
   },
 ];
 

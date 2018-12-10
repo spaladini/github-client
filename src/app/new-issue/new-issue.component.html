@@ -1,0 +1,19 @@
+<div>
+  <form #issueForm="ngForm">
+    <div>
+      <label>Title: </label>
+      <input #title="ngModel" name="title" type="text" [(ngModel)]="issue.title" required>
+      <div *ngIf="!title.valid && title.touched" class="error">Field not valid</div>
+    </div>
+    <div>
+      <label>Assignee: </label>
+      <select name="assignee" [(ngModel)]="issue.assignee">
+        <option></option>
+        <option *ngFor="let user of users" [ngValue]="user">{{user.login}}</option>
+      </select>
+    </div>
+    <button (click)="submitIssue()" [disabled]="!issueForm.valid">Submit the new issue!</button>
+  </form>
+</div>
+{{issue | json}}
+<button type="button" (click)="print(title)">print</button>

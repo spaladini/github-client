@@ -1,0 +1,10 @@
+:host > div {
+    background-color: lightgrey;
+    padding: 1em;
+}
+
+.error {
+    background-color: lightpink;
+    color: red;
+    padding: 5px;
+}
